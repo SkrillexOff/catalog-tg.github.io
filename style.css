@@ -87,6 +87,7 @@ table {
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 12px;
+    align-items: center;
 }
 
 .column_1{
@@ -119,7 +120,6 @@ table {
 }
 
 .button_plus{
-    background-color: #D9E9FF;
     color: #0084FF;
     height: 32px;
     width: 32px;
@@ -131,8 +131,8 @@ table {
 }
 
 .plus{
-    width: 16px;
-    height: 16px;
+    width: 24px;
+    height: 24px;
     color: #0084FF;
 }
 
