@@ -55,7 +55,7 @@ table {
     justify-content: center;
     flex-direction: column;
     font-family: inter;
-    letter-spacing: 0%;
+    letter-spacing: 1%;
     line-height: normal;
     padding-bottom: 120px;
 }
