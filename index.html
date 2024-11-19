@@ -1,351 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Календарь задач</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+  <!-- Telegram Web App SDK -->
+  <script async src="https://telegram.org/js/telegram-web-app.js"></script>
+
 </head>
 <body>
-    <div class="bg_color">
-        <div class="container">
-            <div class="main_container">
-                <h2 class="title">
-                    Рекомендуемые Вам
-                </h2>
-                <div class="comunity">
-                    <div class="row_1">
-                        <div class="column_1">
-                            <img class="avatar" src="/avatar_1.png" alt="avatar">
-                            <div class="description">
-                                <div class="name">
-                                    Pepakura Papercraft
-                                </div>
-                                <div class="chanel_id">
-                                    @pepakura_one
-                                </div>
-                                <div class="subscribers">
-                                    22.3K подписчиков
-                                </div>
-                            </div>
-                        </div>
-                        <div class="button_plus">
-                            <img class="plus" src="/plus.svg" alt="plus">
-                        </div>
-                    </div>
-                    <div class="row_2">
-                        <div class="tag_top_100">
-                            <img src="/fire.png" alt="tag_ico" class="tag_ico">
-                            <div class="tag_text_top_100">
-                                Топ 100
-                            </div>
-                        </div>
-                        <div class="tag_category">
-                            <img src="/cut.png" alt="tag_ico" class="tag_ico">
-                            <div class="tag_text">
-                                Рукоделие
-                            </div>
-                        </div>
-                    </div>
-                </div>  
-                <div class="comunity">
-                    <div class="row_1">
-                        <div class="column_1">
-                            <img class="avatar" src="/avatar_2.png" alt="avatar">
-                            <div class="description">
-                                <div class="name">
-                                    NN
-                                </div>
-                                <div class="chanel_id">
-                                    @naebnet
-                                </div>
-                                <div class="subscribers">
-                                    1.4M подписчиков
-                                </div>
-                            </div>
-                        </div>
-                        <div class="button_plus">
-                            <img class="plus" src="/plus.svg" alt="plus">
-                        </div>
-                    </div>
-                    <div class="row_2">
-                        <div class="tag_category">
-                            <img src="/technology.png" alt="tag_ico" class="tag_ico">
-                            <div class="tag_text">
-                                Технологии
-                            </div>
-                        </div>
-                        <div class="tag_category">
-                            <img src="/media.png" alt="tag_ico" class="tag_ico">
-                            <div class="tag_text">
-                                Медиа
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="comunity">
-                    <div class="row_1">
-                        <div class="column_1">
-                            <img class="avatar" src="/avatar_3.png" alt="avatar">
-                            <div class="description">
-                                <div class="name">
-                                    UX Live 🔥
-                                </div>
-                                <div class="chanel_id">
-                                    @ux_live
-                                </div>
-                                <div class="subscribers">
-                                    56.7K подписчиков
-                                </div>
-                            </div>
-                        </div>
-                        <div class="button_plus">
-                            <img class="plus" src="/plus.svg" alt="plus">
-                        </div>
-                    </div>
-                    <div class="row_2">
-                        <div class="tag_category">
-                            <img src="/media.png" alt="tag_ico" class="tag_ico">
-                            <div class="tag_text">
-                                Медиа
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="comunity">
-                    <div class="row_1">
-                        <div class="column_1">
-                            <img class="avatar" src="/avatar_4.png" alt="avatar">
-                            <div class="description">
-                                <div class="name">
-                                    Артемий Лебедев
-                                </div>
-                                <div class="chanel_id">
-                                    @tema
-                                </div>
-                                <div class="subscribers">
-                                    760.2K подписчиков
-                                </div>
-                            </div>
-                        </div>
-                        <div class="button_plus">
-                            <img class="plus" src="/plus.svg" alt="plus">
-                        </div>
-                    </div>
-                    <div class="row_2">
-                        <div class="tag_top_100">
-                            <img src="/fire.png" alt="tag_ico" class="tag_ico">
-                            <div class="tag_text_top_100">
-                                Топ 100
-                            </div>
-                        </div>
-                        <div class="tag_category">
-                            <img src="/technology.png" alt="tag_ico" class="tag_ico">
-                            <div class="tag_text">
-                                Технологии
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="comunity">
-                    <div class="row_1">
-                        <div class="column_1">
-                            <img class="avatar" src="/avatar_5.png" alt="avatar">
-                            <div class="description">
-                                <div class="name">
-                                    SETTERS Media
-                                </div>
-                                <div class="chanel_id">
-                                    @setters
-                                </div>
-                                <div class="subscribers">
-                                    66.1K подписчиков
-                                </div>
-                            </div>
-                        </div>
-                        <div class="button_plus">
-                            <img class="plus" src="/plus.svg" alt="plus">
-                        </div>
-                    </div>
-                    <div class="row_2">
-                        <div class="tag_category">
-                            <img src="/media.png" alt="tag_ico" class="tag_ico">
-                            <div class="tag_text">
-                                Медиа
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="main_container">
-                <h2 class="title">
-                    Рекомендуем
-                </h2>
-                <div class="comunity">
-                    <div class="row_1">
-                        <div class="column_1">
-                            <img class="avatar" src="/avatar_1.png" alt="avatar">
-                            <div class="description">
-                                <div class="name">
-                                    Pepakura
-                                </div>
-                                <div class="chanel_id">
-                                    @pepakura_one
-                                </div>
-                                <div class="subscribers">
-                                    22.3K подписчиков
-                                </div>
-                            </div>
-                        </div>
-                        <div class="button_plus">
-                            <img class="plus" src="/plus.svg" alt="plus">
-                        </div>
-                    </div>
-                    <div class="row_2">
-                        <div class="tag_top_100">
-                            <img src="/fire.png" alt="tag_ico" class="tag_ico">
-                            <div class="tag_text_top_100">
-                                Топ 100
-                            </div>
-                        </div>
-                        <div class="tag_category">
-                            <img src="/cut.png" alt="tag_ico" class="tag_ico">
-                            <div class="tag_text">
-                                Рукоделие
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="comunity">
-                    <div class="row_1">
-                        <div class="column_1">
-                            <img class="avatar" src="/avatar_2.png" alt="avatar">
-                            <div class="description">
-                                <div class="name">
-                                    NN
-                                </div>
-                                <div class="chanel_id">
-                                    @naebnet
-                                </div>
-                                <div class="subscribers">
-                                    1.4M подписчиков
-                                </div>
-                            </div>
-                        </div>
-                        <div class="button_plus">
-                            <img class="plus" src="/plus.svg" alt="plus">
-                        </div>
-                    </div>
-                    <div class="row_2">
-                        <div class="tag_category">
-                            <img src="/technology.png" alt="tag_ico" class="tag_ico">
-                            <div class="tag_text">
-                                Технологии
-                            </div>
-                        </div>
-                        <div class="tag_category">
-                            <img src="/media.png" alt="tag_ico" class="tag_ico">
-                            <div class="tag_text">
-                                Медиа
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="comunity">
-                    <div class="row_1">
-                        <div class="column_1">
-                            <img class="avatar" src="/avatar_3.png" alt="avatar">
-                            <div class="description">
-                                <div class="name">
-                                    UX Live 🔥
-                                </div>
-                                <div class="chanel_id">
-                                    @ux_live
-                                </div>
-                                <div class="subscribers">
-                                    56.7K подписчиков
-                                </div>
-                            </div>
-                        </div>
-                        <div class="button_plus">
-                            <img class="plus" src="/plus.svg" alt="plus">
-                        </div>
-                    </div>
-                    <div class="row_2">
-                        <div class="tag_category">
-                            <img src="/media.png" alt="tag_ico" class="tag_ico">
-                            <div class="tag_text">
-                                Медиа
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="comunity">
-                    <div class="row_1">
-                        <div class="column_1">
-                            <img class="avatar" src="/avatar_4.png" alt="avatar">
-                            <div class="description">
-                                <div class="name">
-                                    Артемий Лебедев
-                                </div>
-                                <div class="chanel_id">
-                                    @tema
-                                </div>
-                                <div class="subscribers">
-                                    760.2K подписчиков
-                                </div>
-                            </div>
-                        </div>
-                        <div class="button_plus">
-                            <img class="plus" src="/plus.svg" alt="plus">
-                        </div>
-                    </div>
-                    <div class="row_2">
-                        <div class="tag_top_100">
-                            <img src="/fire.png" alt="tag_ico" class="tag_ico">
-                            <div class="tag_text_top_100">
-                                Топ 100
-                            </div>
-                        </div>
-                        <div class="tag_category">
-                            <img src="/technology.png" alt="tag_ico" class="tag_ico">
-                            <div class="tag_text">
-                                Технологии
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="comunity">
-                    <div class="row_1">
-                        <div class="column_1">
-                            <img class="avatar" src="/avatar_5.png" alt="avatar">
-                            <div class="description">
-                                <div class="name">
-                                    SETTERS Media
-                                </div>
-                                <div class="chanel_id">
-                                    @setters
-                                </div>
-                                <div class="subscribers">
-                                    66.1K подписчиков
-                                </div>
-                            </div>
-                        </div>
-                        <div class="button_plus">
-                            <img class="plus" src="/plus.svg" alt="plus">
-                        </div>
-                    </div>
-                    <div class="row_2">
-                        <div class="tag_category">
-                            <img src="/media.png" alt="tag_ico" class="tag_ico">
-                            <div class="tag_text">
-                                Медиа
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <header>
+    <h1>Календарь задач</h1>
+    <div id="userInfo">
+      <div class="day-weekday">Вы вошли как:</div>
+      <span id="userEmail"></span>
+      <button id="logoutButton" class="btn">Выйти</button>
     </div>
+  </header>
+
+
+  <div id="calendar"></div>
+
+
+  <!-- Модальное окно для добавления задачи -->
+  <div id="taskModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Добавить задачу</h2>
+      <textarea id="taskInput" placeholder="Название задачи"></textarea>
+      <button id="addTaskButton" class="btn primary">Добавить задачу</button>
+    </div>
+  </div>
+
+  <!-- Модальное окно для просмотра задачи -->
+  <div id="viewTaskModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Задача</h2>
+      <p id="viewTaskText"></p>
+      <div class="modal-actions">
+        <button id="deleteFromViewButton" class="btn danger">Удалить</button>
+        <button id="editFromViewButton" class="btn primary">Редактировать</button>
+      </div>
+   </div>
+</div>
+
+
+
+  <!-- Модальное окно для редактирования задачи -->
+  <div id="editTaskModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Редактировать задачу</h2>
+      <textarea id="editTaskInput" placeholder="Название задачи"></textarea>
+      <button id="saveTaskButton" class="btn primary">Сохранить</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Календарь задач</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

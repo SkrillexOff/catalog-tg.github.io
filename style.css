@@ -1,192 +1,474 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+/* Reset and base styles  */
+* {
+	padding: 0px;
+	margin: 0px;
+	border: none;
 }
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Links */
+
+a, a:link, a:visited  {
+    text-decoration: none;
+}
+
+a:hover  {
+    text-decoration: none;
+}
+
+/* Common */
+
+aside, nav, footer, header, section, main {
 	display: block;
 }
-body {
-	line-height: 1;
+
+h1, h2, h3, h4, h5, h6, p {
+    font-size: inherit;
+	font-weight: inherit;
 }
-ol, ul {
+
+ul, ul li {
 	list-style: none;
 }
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
+
+img {
+	vertical-align: top;
 }
 
-
-.bg_color{
-    background-color: #EFF3F8;
-    display: flex;
-    justify-content: center;
+img, svg {
+	max-width: 100%;
+	height: auto;
 }
 
-.container{
-    width: 500px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    font-family: inter;
-    line-height: normal;
-    padding-bottom: 120px;
-    letter-spacing: 0.01em;
+address {
+  font-style: normal;
 }
 
-.main_container{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding-top: 48px;
+/* Form */
+
+input, textarea, button, select {
+	font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: transparent;
+}
+
+input::-ms-clear {
+	display: none;
+}
+
+button, input[type="submit"] {
+    display: inline-block;
+    box-shadow: none;
+    background-color: transparent;
+    background: none;
+    cursor: pointer;
+}
+
+input:focus, input:active,
+button:focus, button:active {
+    outline: none;
+}
+
+button::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+
+label {
+	cursor: pointer;
+}
+
+legend {
+	display: block;
+}
+
+
+/* Reset and base styles  */
+
+body {
+  font-family: Inter, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  background-color: #F5F5F0;
+}
+
+h1 {
+  color: #333;
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
+
+h2 {
+  color: #333;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+span {
+  margin-top: 2px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+#calendar {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+  max-width: 500px;
+  padding-top: 32px;
+}
+
+.calendar-day {
+  border-radius: 8px;
+}
+
+.day-header {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  padding-left: 16px;
+  gap: 2px;
+}
+
+.day-date {
+  font-weight: 700;
+  font-size: 24px;
+  color: #333;
+}
+
+.day-weekday {
+  font-size: 14px;
+  font-weight: 500;
+  color: #777;
+}
+
+.tasks-list {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 16px;
+  margin-bottom: 4px;
+}
+
+.task-item {
+  display: flex;
+  gap: 8px;
+  padding: 16px;
+  background: #FFFFFF;
+  border-radius: 16px;
+  margin-top: 4px;
+}
+
+.task-item.done span {
+  text-decoration: line-through;
+  color: #9C998E;
+}
+
+.task-item button {
+  background: none;
+  border: none;
+  color: #d9534f;
+  font-size: 1.2em;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+
+.add-task-btn {
+  background-color: #ffffff;
+  color: #9C998E;
+  padding: 16px;
+  width: 100%;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.add-task-btn i {
+  margin-right: 8px;
+  font-size: 1.2em;
 }
 
 
 
-.comunity{
-    background-color: #fff;
-    border-radius: 24px;
-    padding: 16px;
-    margin-bottom: 4px;
+.checkbox-item {
+  appearance: none;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+  border: 2px solid #000000;
+  transition: 500ms;
+  padding-right: 20px;
 }
 
-.avatar{
-    width: 64px;
-    height: 64px;
-    border-radius: 16px;
+.checkbox-item::after {
+  content: "";
+  position: absolute;
+  background: #000;
+  font-size: 30px;
+  top: -2px;
+  left: -2px;
+  width: 0px;
+  height: 0px;
+  border-radius: 8px;
+  background-image: url("images/checkbox.svg");
+  background-repeat: no-repeat;
+  transition: 500ms;
 }
 
-.row_1{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 12px;
-    align-items: center;
+.checkbox-item:checked::after {
+  width: 24px;
+  height: 24px;
+  transition: 500ms;
 }
 
-.column_1{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+.checkbox-item:disabled,
+.radio-input:disabled {
+  background: #ccc;
+  border-color: #ccc;
 }
 
-.description{
-    margin-left: 12px;
+.checkbox-item:disabled::after {
+  filter: grayscale(100%);
 }
 
-.name{
-    margin-bottom: 2px;
-    font-size: 18px;
-    font-weight: 600;
+.plus-button {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
 }
 
-.subscribers{
-    font-size: 14px;
-    font-weight: 400;
-    color: #8F949B;
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
-.chanel_id{
-    font-size: 14px;
-    font-weight: 400;
-    color: #8F949B;
-    margin-bottom: 4px;
+.modal.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.button_plus{
-    color: #0084FF;
-    height: 32px;
-    width: 32px;
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
+.modal-content {
+  width: 100%;
+  max-width: 500px;
+  background-color: #ffffff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.plus{
-    width: 24px;
-    height: 24px;
-    color: #0084FF;
+.close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-.row_2{
-    display: flex;
-    flex-direction: row;
+.modal-actions {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
 }
 
-.tag_top_100{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    background-color: #FFF4C5;
-    height: 32px;
-    border-radius: 16px;
-    padding-left: 8px;
-    padding-right: 12px;
-    margin-right: 4px;
+.close-btn:hover {
+  color: #000;
 }
 
-.tag_ico{
-    width: 16px;
-    height: 16px;
+#taskInput, #email, #password, #editTaskInput {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #000;
+  border-radius: 8px;
+  font-size: 16px;
 }
 
-.tag_text_top_100{
-    color: #4F5256;
-    font-weight: 400;
-    margin-left: 4px;
-    font-size: 14px;
+#addTaskButton, #loginButton, #registerButton, #saveTaskButton, #editFromViewButton {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 12px;
+  width: 100%;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
 }
 
-.tag_category{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    background-color: #F1F7FF;
-    height: 32px;
-    border-radius: 16px;
-    padding-left: 8px;
-    padding-right: 12px;
-    margin-right: 4px;
+#saveTaskButton {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 12px;
+  width: 100%;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
 }
 
-.tag_text{
-    margin-left: 4px;
-    color: #4F5256;
-    font-weight: 400;
-    font-size: 14px;
+.auth-container {
+  max-width: 500px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  text-align: center;
+  height: 100vh;
 }
 
-.title{
-    font-size: 24px;
-    font-weight: 600;
-    margin-left: 16px;
-    margin-bottom: 16px;
+.auth-container h2 {
+  margin-bottom: 20px;
+}
+
+.auth-container input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  font-size: 16px;
+  font-weight: 500;
+  border: 1px solid #000;
+  border-radius: 8px;
+  height: 48px;
+}
+
+.auth-container button {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 12px;
+  width: 100%;
+  height: 48px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  margin-top: 16px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+
+/* Анимация для модальных окон */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+}
+
+/* Добавим стили для кнопки выхода */
+
+#logoutButton {
+  background-color: #d9534f;
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#logoutButton:hover {
+  background-color: #c9302c;
+}
+
+#deleteFromViewButton {
+  background-color: #d9534f;
+  color: #ffffff;
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#deleteFromViewButton:hover {
+  background-color: #c9302c;
+}
+
+/* Стили для блока с почтой пользователя */
+#userInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#userEmail {
+  font-size: 1.1em;
+  color: #333;
+}
+
+.would-you {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.auth-conteiner2 {
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-bottom: 24px;
+}
+
+.have-account {
+  font-size: 14px;
+}
+
+.register-button {
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+}
+
+
+#viewTaskModal p {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 20px 0;
+}
+
+#viewTaskModal .btn.primary {
+  margin-top: 10px;
+}
+
+footer {
+  margin-top: 56px;
+  margin-bottom: 32px;
 }
